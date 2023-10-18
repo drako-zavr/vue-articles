@@ -30,12 +30,11 @@
 <body>
     <img class="logo" src="img/logo1.svg" alt="">
     <div id="app">
-    <form class="article-form">
-        <input class="article-form__input" type="text" placeholder="Введите Название статьи" v-model="newtitle">
+    <div class="article-form">
+        <input ref ="inputtitle"class="article-form__input" type="text" placeholder="Введите Название статьи" v-model="newtitle">
         <input class="article-form__input" type="text" placeholder="Введите Основной текст" v-model="newbody">
-        <button class="article-form__button"  v-on:click="addArticle">Добавить новую статью</button>
-        
-    </form>
+        <button class="article-form__button"  v-on:click="addArticle(newtitle,newbody)">Добавить новую статью</button>
+    </div>
 
     <h1>Статьи</h1>
 
@@ -72,11 +71,7 @@
                     <p class="body">{{body}}</p>
                 </div> -->
                 
-            <div class="row" v-for="article in articles">
-                <div class="article col">
-                    <h3 class="title">{{article.title}}</h3>
-                    <p class="body">{{article.body}}</p>
-                </div>
+            
                 <!-- {{created()}} -->
 
                 <!-- <div class="row" v-for="article in json">
@@ -86,24 +81,31 @@
                     </div>
             </div> -->
 
+            <!-- <div class="row" v-for="article in articles">
+                <div class="article col">
+                    <h3 class="title">{{article.title}}</h3>
+                    <p class="body">{{article.body}}</p>
+                </div> -->
+<paginated-list :list-data="articles"/> 
+
             </div>
 
         </div>
         <!-- {{pageNumber}} -->
+
+
         
-        
-      
 
        
-        <div class="pagination">
-            <!-- v-if="pageNumber!=0" -->
+        <!-- <div class="pagination">
+           
             <button class="pagination__button" v-on:click="prevPage">&#60;&#60;</button>
             <button class="pagination__button">1</button>
             <button class="pagination__button">2</button>
             <button class="pagination__button">3</button>
             <button class="pagination__button">4</button>
             <button class="pagination__button" v-on:click="nextPage">&#62;&#62;</button>
-        </div>
+        </div> -->
 
     </div>
 

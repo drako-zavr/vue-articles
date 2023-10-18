@@ -132,3 +132,7 @@ h1 {
     background: #ffffff;
     font-weight: 700;
 }
+
+.pagination__button:hover:disabled{
+    cursor:not-allowed;
+  }
