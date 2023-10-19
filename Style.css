@@ -17,7 +17,6 @@ body {
     margin-bottom: 44px;
 }
 
-.article-form {}
 
 .article-form__input {
     width: 350px;
@@ -81,7 +80,7 @@ h1 {
 
 
 .article {
-    width: 350px;
+    /* width: 350px; */
     /* height: 222px; */
     flex-shrink: 0;
     border-radius: 10px;
