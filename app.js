@@ -49,6 +49,12 @@ Vue.component('paginated-list', {
                <p class="body">{{p.body}}</p>
            </div>
            </div>
+<div class="pagination">
+           <div v-for="a in pageCount-1">
+           <button class="pagination__button" 
+            @click="selectPage(a)"
+            >{{a}}</button>
+           </div></div>
           
           <div class="pagination">
           <button class="pagination__button"
@@ -96,10 +102,12 @@ var app = new Vue({
   },
   methods: {
     addArticle(newtitle, newbody) {
+      if(this.title !='' && this.body !='')
       app.articles.push({
         title: newtitle,
         body: newbody
       });
+      
 
       this.title = ''
       this.body = ''
