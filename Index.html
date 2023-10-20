@@ -21,17 +21,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
+
+    <link rel="icon" type="image/png" href="/img/logo1.svg">
+
     <title>Articles</title>
 </head>
 
 <body>
     <img class="logo" src="img/logo1.svg" alt="">
     <div id="app">
-        <!-- <div id="articleform" class="article-form">
-        <input id="newtitle" ref ="inputtitle" class="article-form__input" type="text" placeholder="Введите Название статьи" v-model="newtitle">
-        <input id="newbody" class="article-form__input" type="text" placeholder="Введите Основной текст" v-model="newbody">
-        <button id="createarticle" type="submit" class="article-form__button"  v-on:click="addArticle(newtitle,newbody)">Добавить новую статью</button>
-    </div> -->
 
         <form id="articleform" class="article-form" v-on:submit.prevent="addArticle(title ,body)">
             <input name="title" id="title" ref="inputtitle" class="article-form__input" type="text"
@@ -40,7 +38,6 @@
                 v-model="body">
             <button id="createarticle" type="submit" class="article-form__button">Добавить новую статью</button>
         </form>
-
 
         <h1>Статьи</h1>
         <div class="articles">
@@ -51,7 +48,6 @@
 
 
     <script src="app.js"></script>
-
 
 </body>
 </html>

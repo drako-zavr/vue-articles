@@ -14,7 +14,7 @@ Vue.component('paginated-list', {
     size: {
       type: Number,
       required: false,
-      default: 6
+      default: 3
     }
   },
   methods: {
@@ -41,39 +41,31 @@ Vue.component('paginated-list', {
         .slice(start, end);
     }
   },
+  // переделать проще
   template: `<div>
            
            <div v-for="p in paginatedData">
+
            <div class="article col">
                <h3 class="title">{{p.title}}</h3>
                <p class="body">{{p.body}}</p>
            </div>
            </div>
-<div class="pagination">
-           <div v-for="a in pageCount-1">
-           <button class="pagination__button" 
-            @click="selectPage(a)"
-            >{{a}}</button>
-           </div></div>
-          
+
           <div class="pagination">
+
           <button class="pagination__button"
               :disabled="pageNumber === 0" 
               @click="prevPage">
               &#60;&#60;
           </button>
-            <button class="pagination__button" 
-            @click="selectPage(1)"
-            >1</button>
-            <button class="pagination__button"
-            @click="selectPage(2)"
-            >2</button>
-            <button class="pagination__button"
-            @click="selectPage(3)"
-            >3</button>
-            <button class="pagination__button"
-            @click="selectPage(4)"
-            >4</button>
+
+            <div v-for="a in pageCount">
+           <button class="pagination__button" 
+            @click="selectPage(a)"
+            >{{a}}</button>
+           </div>
+
             <button class="pagination__button"
               :disabled="pageNumber >= pageCount -1" 
               @click="nextPage">
